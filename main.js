@@ -45,8 +45,9 @@ button.addEventListener('click', async () => {
 })
 
 buttonElement.addEventListener('click', async () => {
-  await html2canvas(ticketElement).then(canvas => {
-    console.log(canvas)
+  await html2canvas(ticketElement, {
+    useCORS: true,
+  }).then(canvas => {
     const base64image = canvas.toDataURL('image/png')
     var anchor = document.createElement('a')
     anchor.setAttribute('href', base64image)
